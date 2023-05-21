@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown Page</title>
+  <style>
+    body {
+      background: black;
+      font-family: Arial, sans-serif;
+    }
+    .event {
+      display: inline-block;
+      width: 200px;
+      height: 150px;
+      border-radius: 10px;
+      background: linear-gradient(to top, #010510, #3B07AF);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      margin: 10px;
+    }
+    .event-title {
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .countdown {
+      font-size: 24px;
+      line-height: 1.2;
+      color: yellow;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kaç Gün Kaldı?</h1>
+
+  <div class="event">
+    <div class="event-title">10 Haziran: İlk Duyuru | AGG</div>
+    <div class="countdown" id="countdown1"></div>
+  </div>
+
+  <div class="event">
+    <div class="event-title">23 - 25 Haziran: Doğa Kampı | AGG</div>
+    <div class="countdown" id="countdown2"></div>
+  </div>
+
+  <!-- Add more event boxes here -->
+  <div class="event">
+    <div class="event-title">1 Temmuz: İlk Duyuru | Lise Akademi</div>
+    <div class="countdown" id="countdown3"></div>
+  </div>
+
+  <div class="event">
+    <div class="event-title">1 Temmuz: Son Başburu Tarihi | AGG</div>
+    <div class="countdown" id="countdown4"></div>
+  </div>
+
+  <div class="event">
+    <div class="event-title">2 - 9 Temmuz: Kamp | AGG</div>
+    <div class="countdown" id="countdown5"></div>
+  </div>
+
+  <div class="event">
+    <div class="event-title">14 - 16 Temmuz: Kamp | AGG</div>
+    <div class="countdown" id="countdown6"></div>
+  </div>
+
+  <!-- Add more event boxes here -->
+  <div class="event">
+    <div class="event-title">31 Temmuz: Son Başvuru | Lise Akademi</div>
+    <div class="countdown" id="countdown7"></div>
+  </div>
+
+  <div class="event">
+    <div class="event-title">1 Ağustos: Mülakat Listelerinin Açıklanması | Lise Akademi</div>
+    <div class="countdown" id="countdown8"></div>
+  </div>
+
+  <div class="event">
+    <div class="event-title">5 - 27 Ağustos: Mülakatlar Başlangıcı | Lise Akademi</div>
+    <div class="countdown" id="countdown9"></div>
+  </div>
+
+  <div class="event">
+    <div class="event-title">29 Ağustos: Sonuçların Açıklanması | Lise Akademi</div>
+    <div class="countdown" id="countdown10"></div>
+  </div>
+
+  <div class="event">
+    <div class="event-title">2 Eylül: Oryantasyon Programı | Lise Akademi</div>
+    <div class="countdown" id="countdown11"></div>
+  </div>
+
+  <!-- Add more event boxes here -->
+  <div class="event">
+    <div class="event-title">16 Eylül: Oryantasyon Programı | AGG</div>
+    <div class="countdown" id="countdown12"></div>
+  </div>
+
+  <div class="event">
+    <div class="event-title">23 Eylül: Kaynaşma Kampı | Lise Akademi</div>
+    <div class="countdown" id="countdown13"></div>
+  </div>
+  <!-- Add more event boxes here -->
+
+  <script>
+    // Dates for the events
+    var eventDates = [
+      new Date('2023-06-10'),
+      new Date('2023-06-23'),
+      new Date('2023-07-01'),
+      new Date('2023-07-01'),
+      new Date('2023-07-02'),
+      new Date('2023-07-14'),
+      new Date('2023-07-31'),
+      new Date('2023-08-01'),
+      new Date('2023-08-05'),
+      new Date('2023-08-29'),
+      new Date('2023-09-02'),
+      new Date('2023-09-16'),
+      new Date('2023-09-23')
+    ];
+
+    // Update the countdown for each event
+    function updateCountdown() {
+      var now = new Date();
+
+      for (var i = 0; i < eventDates.length; i++) {
+        var countdownElement = document.getElementById('countdown' + (i + 1));
+        var eventDate = eventDates[i];
+
+        var timeLeft = eventDate - now;
+        var daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        var hoursLeft = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+        countdownElement.textContent = daysLeft + " gün " + hoursLeft + " saat";
+      }
+    }
+
+    // Update the countdown every second
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
